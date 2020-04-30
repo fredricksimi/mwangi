@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+    <h3>HERE ARE ALL THE POSTS THAT YOU HAVE CREATED</h3>
+    <br>
+    {% for post in posts %}
+    <p>{{forloop.counter}}. <a href="{% url 'blog:details' post.id %}">{{post.title}}</a> by {{post.author}}</p>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+      <br>
+    {% if the_post.author == request.user %}
+    <div class="btn-group" role="group">
+      <a href="{% url 'blog:update' the_post.id %}"><button type="button" class="btn btn-primary">Update Post</button></a>
+      <a href="{% url 'blog:delete' the_post.id %}"><button type="button" class="btn btn-warning">Delete It</button></a>
+    </div>
+    {% endif %}
+    <br><br>
+    <p>Title: {{the_post.title}} <i>by {{the_post.author}}</i></p>
+
+    <br>
+    <p>Content: <br>{{the_post.content}}</p>
+  </div>
+
+{% endblock %}
